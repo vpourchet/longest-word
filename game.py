@@ -1,3 +1,6 @@
+# pylint: disable=missing-docstring
+# pylint: disable=too-few-public-methods
+
 import random
 import string
 import requests
@@ -17,9 +20,9 @@ class Game:
                 letters.remove(letter)
             else:
                 return False
-        return self.exists(word)
+        return self.__exists(word)
 
-    def exists(self, word):
+    def __exists(self, word):
         test = requests.get(f"https://wagon-dictionary.herokuapp.com/{word}")
         resultat = test.json()
         return resultat['found']
